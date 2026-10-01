@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(gn10-map-generator)
+project(gn10_map_generator)
 
 # CMake Policy 設定 (PCL周りの警告を抑制)
 if(POLICY CMP0074)
