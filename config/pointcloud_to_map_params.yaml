@@ -1,0 +1,25 @@
+/**:
+  ros__parameters:
+    # フレーム設定
+    target_frame: "map"
+    robot_frame: "base_link"
+    output_json_path: "field_map.json"
+
+    # Z軸（高さ）フィルタリング範囲 (m)
+    z_min_crop: 0.05
+    z_max_crop: 4.00
+
+    # ロボット自身の除外領域
+    robot_filter_radius: 0.50 # 円柱半径 (m)
+    robot_box_x: 0.80         # 車幅 X (m) [-0.4 ~ +0.4]
+    robot_box_y: 0.80         # 車長 Y (m) [-0.4 ~ +0.4]
+
+    # 点群密度＆クラスタリング設定
+    voxel_leaf_size: 0.03            # 3cm グリッド (オーバーフロー防止＆空間密度均一化)
+    cluster_tolerance: 0.06          # 6cm (オブジェクト同士が過剰に結合するのを防止)
+    min_cluster_size: 30             # クラスタ最小点数
+    max_cluster_size: 25000          # クラスタ最大点数
+
+    # 重複・ノイズ除去設定
+    min_object_size_xy: 0.05         # 最小物理サイズ 5cm (ノイズの排除)
+    iou_overlap_threshold: 0.30      # IoU 重なり率 30% 以上で重複排除 (形状を壊さず被りだけ除去)
