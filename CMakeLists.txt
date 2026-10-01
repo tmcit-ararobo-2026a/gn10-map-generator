@@ -46,9 +46,27 @@ target_link_libraries(pointcloud_to_map
   ${PCL_LIBRARIES}
 )
 
+add_executable(pcd_to_map_offline src/pcd_to_map_offline.cpp)
+target_include_directories(pcd_to_map_offline PUBLIC
+  ${PCL_INCLUDE_DIRS}
+)
+target_link_libraries(pcd_to_map_offline
+  ${PCL_LIBRARIES}
+)
+ament_target_dependencies(pcd_to_map_offline
+  rclcpp
+  sensor_msgs
+  pcl_conversions
+  nlohmann_json
+  tf2
+  tf2_ros
+  tf2_sensor_msgs
+)
+
 # Install executable
 install(TARGETS
   pointcloud_to_map
+  pcd_to_map_offline
   DESTINATION lib/${PROJECT_NAME}
 )
 

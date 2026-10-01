@@ -1,0 +1,27 @@
+/**:
+  ros__parameters:
+    # 入出力ファイルパス
+    input_pcd_path: "fast_lio_map.pcd"
+    output_json_path: "field_map.json"
+
+    # TF 座標変換設定 (base_link から見た Mid-360 の位置と姿勢)
+    tf_x: 0.20
+    tf_y: -0.25
+    tf_z: 1.09
+    tf_roll_rad: 3.13        # 180度反転
+    tf_pitch_rad: -0.273     # 傾き補正 (傾きが残る場合はこの数値を 0.273 などに調整可能)
+    tf_yaw_rad: 0.0
+
+    # Z軸（高さ）切り出し設定 (m) ※ base_link 基準
+    z_min_crop: 0.05
+    z_max_crop: 2.00
+
+    # クラスタリング設定
+    voxel_leaf_size: 0.02            # 2cm グリッド
+    cluster_tolerance: 0.18          # 15cm
+    min_cluster_size: 10             # 最小点数
+    max_cluster_size: 25000          # 最大点数
+
+    # 重複・ノイズフィルタリング
+    min_object_size_xy: 0.05         # 最小物理サイズ 5cm
+    iou_overlap_threshold: 0.30      # IoU 30% 以上で重複排除
